@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- 默认的一些设置 -->
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<!-- 日志文件变量 -->
+	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+	<!-- 控台配置 -->
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	<!-- 文件配置 -->
+	<include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+	<!-- 邮件配置 -->
+	<include resource="mail-appender.xml" />
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="MAIL"/>
+	</root>
+</configuration>
